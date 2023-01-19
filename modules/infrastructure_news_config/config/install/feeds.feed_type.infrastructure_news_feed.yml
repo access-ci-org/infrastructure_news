@@ -1,0 +1,124 @@
+uuid: d6425a3c-c58a-4d44-b8c2-84f07d447dce
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.base_field_override.node.infrastructure_news.title
+    - field.field.node.infrastructure_news.body
+    - field.field.node.infrastructure_news.field_infrastructure_news_end
+    - field.field.node.infrastructure_news.field_infrastructure_news_id
+    - field.field.node.infrastructure_news.field_infrastructure_news_start
+    - field.field.node.infrastructure_news.field_infrastructure_news_type
+    - node.type.infrastructure_news
+  module:
+    - feeds_ex
+    - node
+label: 'Infrastructure News'
+id: infrastructure_news_feed
+description: 'Infrastructure news feed'
+help: ''
+import_period: 0
+fetcher: http
+fetcher_configuration:
+  auto_detect_feeds: true
+  use_pubsubhubbub: false
+  always_download: false
+  fallback_hub: ''
+  request_timeout: 30
+parser: jsonpath
+parser_configuration:
+  context:
+    value: '$.*'
+  source_encoding:
+    - auto
+  display_errors: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: infrastructure_news
+  langcode: en
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  revision: false
+  expire: 31536000
+  owner_feed_author: true
+  owner_id: 0
+custom_sources:
+  subject:
+    value: Subject
+    label: Subject
+    machine_name: subject
+    type: json
+  content:
+    value: Content
+    label: Content
+    machine_name: content
+    type: json
+  outagestart:
+    value: OutageStart
+    label: OutageStart
+    machine_name: outagestart
+    type: json
+  outageend:
+    value: OutageEnd
+    label: OutageEnd
+    machine_name: outageend
+    type: json
+  outagetype:
+    value: OutageType
+    label: OutageType
+    machine_name: outagetype
+    type: json
+  outageid:
+    value: OutageID
+    label: OutageID
+    machine_name: outageid
+    type: json
+mappings:
+  -
+    target: title
+    map:
+      value: subject
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: body
+    map:
+      value: content
+      summary: content
+    settings:
+      language: null
+      format: plain_text
+  -
+    target: field_infrastructure_news_start
+    map:
+      value: outagestart
+    settings:
+      language: null
+      timezone: UTC
+  -
+    target: field_infrastructure_news_end
+    map:
+      value: outageend
+    settings:
+      language: null
+      timezone: UTC
+  -
+    target: field_infrastructure_news_type
+    map:
+      value: outagetype
+    settings:
+      language: null
+  -
+    target: field_infrastructure_news_id
+    map:
+      value: outageid
+    settings:
+      language: null
+    unique:
+      value: '1'

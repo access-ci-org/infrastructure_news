@@ -1,0 +1,20 @@
+uuid: 3082b7e0-d8ca-484b-9a57-ac4354520cdc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_infrastructure_news_id
+field_name: field_infrastructure_news_id
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

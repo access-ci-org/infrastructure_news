@@ -1,0 +1,9 @@
+name: Infrastructure News
+description: Pulls in the Infrastructure news feed.
+package: Other
+type: module
+core_version_requirement: ^9.4 || ^10
+dependencies:
+  - drupal:operations_cider
+  - drupal:feeds
+  - drupal:feeds_ex

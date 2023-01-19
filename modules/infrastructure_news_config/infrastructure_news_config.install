@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Setup infrastructure news feed.
+ */
+
+use Drupal\feeds\Entity\Feed;
+
+/**
+ * Implements hook_install().
+ */
+function infrastructure_news_config_install() {
+  $feed = Feed::create([
+    'type' => "infrastructure_news_feed",
+    'title' => "Infrastructure News",
+    'source' => "https://info.xsede.org/wh1/outages/v1/outages/?format=json",
+    'uid' => 1,
+  ]);
+  $feed->save();
+}

@@ -1,0 +1,9 @@
+name: Infrastructure News Config
+description: Pulls in the Infrastructure news feed — this module can be disabled..
+package: Other
+type: module
+core_version_requirement: ^9.4 || ^10
+dependencies:
+  - drupa:infrastructure_news
+  - drupal:feeds
+  - drupal:feeds_ex

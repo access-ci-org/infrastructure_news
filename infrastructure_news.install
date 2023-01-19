@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Enable infrastructure_news_config.
+ */
+
+use Drupal\feeds\Entity\Feed;
+
+/**
+ * Implements hook_install().
+ */
+function infrastructure_news_install() {
+  \Drupal::service('module_installer')->install(['infrastructure_news_config']);
+}

@@ -1,0 +1,80 @@
+uuid: 42c6e219-ad4b-4c78-9cfc-f3df6419f82b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.infrastructure_news.body
+    - field.field.node.infrastructure_news.feeds_item
+    - field.field.node.infrastructure_news.field_infrastructure_news_end
+    - field.field.node.infrastructure_news.field_infrastructure_news_id
+    - field.field.node.infrastructure_news.field_infrastructure_news_start
+    - field.field.node.infrastructure_news.field_infrastructure_news_type
+    - node.type.infrastructure_news
+  module:
+    - datetime
+    - options
+    - text
+    - user
+_core:
+  default_config_hash: YhPlwVIyL38RWJxHJWOTmfs8eeJ1U-GC6aa4JoGS3J0
+id: node.infrastructure_news.default
+targetEntityType: node
+bundle: infrastructure_news
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_affected_infrastructure:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_infrastructure_news_end:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_infrastructure_news_id:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_infrastructure_news_start:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_infrastructure_news_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  feeds_item: true

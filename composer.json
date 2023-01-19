@@ -1,0 +1,33 @@
+{
+    "name": "access/infrastructure_news",
+    "version": "1.0.0",
+    "description": "Drupal Feed of Infrastructure News",
+    "type": "drupal-custom-module",
+    "license": "Apache License, Version 2.0",
+    "authors": [
+        {
+            "name": "Miles France",
+            "email": "miles.france@protitude.com"
+        },
+        {
+            "name": "Andrew Pasquale",
+            "email": "andrew@elytra.net"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/access-ci-org/infrastructure_news/issues",
+        "source": "https://github.com/access-ci-org/infrastructure_news"
+    },
+    "minimum-stability": "dev",
+    "repositories": {
+        "operations_cider": {
+            "type": "vcs",
+            "url": "https://github.com/access-ci-org/Operations_Drupal_Feed_Cider.git"
+        }
+    },
+    "require": {
+        "access/operations_cider": "dev-main",
+        "drupal/feeds": "^3.0@beta",
+        "drupal/feeds_ex": "^1.0@beta"
+    }
+}

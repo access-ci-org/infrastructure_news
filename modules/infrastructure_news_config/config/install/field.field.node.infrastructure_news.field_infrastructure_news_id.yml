@@ -1,0 +1,23 @@
+uuid: 74412a8d-7104-448c-9a66-797fdee80533
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_infrastructure_news_id
+    - node.type.infrastructure_news
+id: node.infrastructure_news.field_infrastructure_news_id
+field_name: field_infrastructure_news_id
+entity_type: node
+bundle: infrastructure_news
+label: ID
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
