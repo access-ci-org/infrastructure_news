@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.infrastructure_news.body
     - field.field.node.infrastructure_news.feeds_item
+    - field.field.node.infrastructure_news.field_affected_infrastructure
     - field.field.node.infrastructure_news.field_infrastructure_news_end
     - field.field.node.infrastructure_news.field_infrastructure_news_id
     - field.field.node.infrastructure_news.field_infrastructure_news_start
@@ -15,7 +16,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: jplfufei78hLYIUTL35xH6xti1KReiaztiRV4jHAX7c
+  default_config_hash: PDOo5vhNhbxz3SqnWZak8AaNYsqZn0j1hSlOjs9ZFU8
 id: node.infrastructure_news.teaser
 targetEntityType: node
 bundle: infrastructure_news

@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.infrastructure_news.body
     - field.field.node.infrastructure_news.feeds_item
+    - field.field.node.infrastructure_news.field_affected_infrastructure
     - field.field.node.infrastructure_news.field_infrastructure_news_end
     - field.field.node.infrastructure_news.field_infrastructure_news_id
     - field.field.node.infrastructure_news.field_infrastructure_news_start
@@ -15,7 +16,7 @@ dependencies:
     - path
     - text
 _core:
-  default_config_hash: FH-ZJ-9j4geJvmz2Tli96eAt89IKoIXHDhzjxoI-Dxo
+  default_config_hash: 8cVL2vPKXGDKfXG4yzqwUNW8HwY-HvREWglLNaTNfBo
 id: node.infrastructure_news.default
 targetEntityType: node
 bundle: infrastructure_news
@@ -39,7 +40,7 @@ content:
     third_party_settings: {  }
   field_affected_infrastructure:
     type: entity_reference_autocomplete
-    weight: 126
+    weight: 127
     region: content
     settings:
       match_operator: CONTAINS
