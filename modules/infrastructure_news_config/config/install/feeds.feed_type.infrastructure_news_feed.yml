@@ -13,6 +13,8 @@ dependencies:
   module:
     - feeds_ex
     - node
+_core:
+  default_config_hash: TVjj3taQdYDwaw2NzPVVyVRD-ITVkmV6CWFpBnImSBo
 label: 'Infrastructure News'
 id: infrastructure_news_feed
 description: 'Infrastructure news feed'
@@ -90,10 +92,10 @@ mappings:
     target: body
     map:
       value: content
-      summary: content
+      summary: ''
     settings:
-      language: null
-      format: plain_text
+      language: ''
+      format: basic_html
   -
     target: field_infrastructure_news_start
     map:

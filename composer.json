@@ -28,6 +28,7 @@
     "require": {
         "access/operations_cider": "dev-main",
         "drupal/feeds": "^3.0@beta",
-        "drupal/feeds_ex": "^1.0@beta"
+        "drupal/feeds_ex": "^1.0@beta",
+        "drupal/field_group": "^3.4"
     }
 }

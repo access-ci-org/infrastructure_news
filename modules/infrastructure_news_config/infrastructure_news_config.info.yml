@@ -7,3 +7,4 @@ dependencies:
   - drupa:infrastructure_news
   - drupal:feeds
   - drupal:feeds_ex
+  - drupal:field_group

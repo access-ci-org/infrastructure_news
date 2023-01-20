@@ -7,7 +7,9 @@ dependencies:
     - field.field.node.infrastructure_news.body
     - field.field.node.infrastructure_news.feeds_item
     - field.field.node.infrastructure_news.field_affected_infrastructure
-    - field.field.node.infrastructure_news.field_distribution_options
+    - field.field.node.infrastructure_news.field_do_email_all
+    - field.field.node.infrastructure_news.field_do_email_subscribers
+    - field.field.node.infrastructure_news.field_do_slack
     - field.field.node.infrastructure_news.field_infrastructure_news_end
     - field.field.node.infrastructure_news.field_infrastructure_news_id
     - field.field.node.infrastructure_news.field_infrastructure_news_start
@@ -17,7 +19,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: cs1s6a30GoKjAwDKM60kGPcSWd46g_Wi1Mhgazx9Xtw
+  default_config_hash: lasq-feZN-SX60Veennv07SUHjM0xSVw5zuoPTThNVk
 id: node.infrastructure_news.teaser
 targetEntityType: node
 bundle: infrastructure_news
@@ -39,7 +41,9 @@ content:
 hidden:
   feeds_item: true
   field_affected_infrastructure: true
-  field_distribution_options: true
+  field_do_email_all: true
+  field_do_email_subscribers: true
+  field_do_slack: true
   field_infrastructure_news_end: true
   field_infrastructure_news_id: true
   field_infrastructure_news_start: true

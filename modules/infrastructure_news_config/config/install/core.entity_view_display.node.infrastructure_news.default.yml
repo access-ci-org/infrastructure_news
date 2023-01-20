@@ -6,7 +6,9 @@ dependencies:
     - field.field.node.infrastructure_news.body
     - field.field.node.infrastructure_news.feeds_item
     - field.field.node.infrastructure_news.field_affected_infrastructure
-    - field.field.node.infrastructure_news.field_distribution_options
+    - field.field.node.infrastructure_news.field_do_email_all
+    - field.field.node.infrastructure_news.field_do_email_subscribers
+    - field.field.node.infrastructure_news.field_do_slack
     - field.field.node.infrastructure_news.field_infrastructure_news_end
     - field.field.node.infrastructure_news.field_infrastructure_news_id
     - field.field.node.infrastructure_news.field_infrastructure_news_start
@@ -18,7 +20,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: Q-spg_22q0yEiQDTklN2g5rxGbgirYKs4kPy2IwSAYQ
+  default_config_hash: zO6lT7G0BrmBZCLvHsbd1Iaz41DRqCDDnD5WZflZaFY
 id: node.infrastructure_news.default
 targetEntityType: node
 bundle: infrastructure_news
@@ -39,12 +41,35 @@ content:
     third_party_settings: {  }
     weight: 107
     region: content
-  field_distribution_options:
-    type: list_default
+  field_do_email_all:
+    type: boolean
     label: above
-    settings: {  }
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
-    weight: 108
+    weight: 110
+    region: content
+  field_do_email_subscribers:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_do_slack:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 109
     region: content
   field_infrastructure_news_end:
     type: datetime_default
