@@ -12,4 +12,5 @@ use Drupal\feeds\Entity\Feed;
  */
 function infrastructure_news_install() {
   \Drupal::service('module_installer')->install(['infrastructure_news_config']);
+  \Drupal::service('module_installer')->uninstall(['infrastructure_news_config']);
 }

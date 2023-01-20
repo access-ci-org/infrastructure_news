@@ -8,7 +8,9 @@ third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-name: infrastructure_news
+_core:
+  default_config_hash: WFrF6zns0_3d2TlUxDPsbwzoU1BN2_B9yllFfilU-NU
+name: 'Infrastructure News'
 type: infrastructure_news
 description: 'Updates on infrastructure news fed via a feed.'
 help: ''
