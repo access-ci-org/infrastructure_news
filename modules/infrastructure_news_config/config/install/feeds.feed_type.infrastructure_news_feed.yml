@@ -14,7 +14,7 @@ dependencies:
     - feeds_ex
     - node
 _core:
-  default_config_hash: TVjj3taQdYDwaw2NzPVVyVRD-ITVkmV6CWFpBnImSBo
+  default_config_hash: KU9QdCrAvqfKfmqgdUk8yHLGsCHbjXRyp2sUPVxiD0k
 label: 'Infrastructure News'
 id: infrastructure_news_feed
 description: 'Infrastructure news feed'
@@ -30,7 +30,7 @@ fetcher_configuration:
 parser: jsonpath
 parser_configuration:
   context:
-    value: '$.*'
+    value: '$.results.*'
   source_encoding:
     - auto
   display_errors: false
@@ -80,6 +80,16 @@ custom_sources:
     label: OutageID
     machine_name: outageid
     type: json
+  urn:
+    value: URN
+    label: URN
+    machine_name: urn
+    type: json
+  affectedresources:
+    value: AffectedResources
+    label: AffectedResources
+    machine_name: affectedresources
+    type: json
 mappings:
   -
     target: title
@@ -119,7 +129,7 @@ mappings:
   -
     target: field_infrastructure_news_id
     map:
-      value: outageid
+      value: urn
     settings:
       language: null
     unique:
