@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * Implements hook_entity_presave().
+ */
+function infrastructure_news_entity_presave(\Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'infrastructure_news') {
+    // Get value of field_affected_resources_txt and use that to set the value
+    // on field_affected_infrastructure.
+    $affected_resources = $entity->get('field_affected_resources_txt')->getValue();
+    if (!empty($affected_resources)) {
+      $affected_resources_nid = [];
+      foreach ($affected_resources as $key => $value) {
+        // Get the value of the field_affected_resources_txt field.
+        $affected_resource = $value['value'];
+        // Perform entity query on node type access_active_resources_from_cid by field_access_global_resource_id that matches $affected_resource and get nid.
+        $query = \Drupal::entityQuery('node')
+          ->condition('type', 'access_active_resources_from_cid')
+          ->condition('field_access_global_resource_id', $affected_resource);
+        $nids = $query->execute();
+        foreach ($nids as $nid) {
+          // Add nid to $affected_resources_nid array.
+          $affected_resources_nid[] = ['target_id' => $nid];
+        }
+      }
+      if (!empty($affected_resources_nid)) {
+       // Set field_affected_infrastructure to the same value.
+        $entity->set('field_affected_infrastructure', $affected_resources_nid);
+      }
+    }
+  }
+}

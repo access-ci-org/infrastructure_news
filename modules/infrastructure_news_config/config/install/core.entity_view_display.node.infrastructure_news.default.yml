@@ -21,7 +21,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: L9U-fr0nevsRYzPVzL_9BDmxiTv09uSR_GZ3GJ7pdmA
+  default_config_hash: P3VGHEnnhnKIk9jh5dHULEHUnMhxZjWNYg-c5eh7K2A
 id: node.infrastructure_news.default
 targetEntityType: node
 bundle: infrastructure_news
@@ -32,7 +32,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 101
+    weight: 1
     region: content
   field_affected_infrastructure:
     type: entity_reference_label
@@ -40,15 +40,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 107
-    region: content
-  field_affected_resources_txt:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 114
+    weight: 5
     region: content
   field_do_email_all:
     type: boolean
@@ -58,7 +50,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 110
+    weight: 7
     region: content
   field_do_email_subscribers:
     type: boolean
@@ -68,7 +60,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 111
+    weight: 8
     region: content
   field_do_slack:
     type: boolean
@@ -78,7 +70,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 109
+    weight: 6
     region: content
   field_infrastructure_news_end:
     type: datetime_default
@@ -87,7 +79,7 @@ content:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 103
+    weight: 3
     region: content
   field_infrastructure_news_start:
     type: datetime_default
@@ -96,27 +88,21 @@ content:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 102
+    weight: 2
     region: content
   field_infrastructure_news_type:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 105
-    region: content
-  field_infrastructure_news_urn:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 113
+    weight: 4
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden:
   feeds_item: true
+  field_affected_resources_txt: true
+  field_infrastructure_news_urn: true

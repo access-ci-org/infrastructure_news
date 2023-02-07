@@ -5,6 +5,10 @@ dependencies:
   config:
     - core.base_field_override.node.infrastructure_news.title
     - field.field.node.infrastructure_news.body
+    - field.field.node.infrastructure_news.field_affected_resources_txt
+    - field.field.node.infrastructure_news.field_do_email_all
+    - field.field.node.infrastructure_news.field_do_email_subscribers
+    - field.field.node.infrastructure_news.field_do_slack
     - field.field.node.infrastructure_news.field_infrastructure_news_end
     - field.field.node.infrastructure_news.field_infrastructure_news_start
     - field.field.node.infrastructure_news.field_infrastructure_news_type
@@ -14,7 +18,7 @@ dependencies:
     - feeds_ex
     - node
 _core:
-  default_config_hash: mtFGGYuIQ7imiVzSp1hK4uCf6qCHwuu9nY1WEE6Nj6Y
+  default_config_hash: B236valH_wP5PG_-liSPN_q9GH0n_r1AVIMlK_5F9B0
 label: 'Infrastructure News'
 id: infrastructure_news_feed
 description: 'Infrastructure news feed'
@@ -90,6 +94,21 @@ custom_sources:
     label: AffectedResources
     machine_name: affectedresources
     type: json
+  distributionoptionsemailsubscribers:
+    value: DistributionOptionsEmailSubscribers
+    label: DistributionOptionsEmailSubscribers
+    machine_name: distributionoptionsemailsubscribers
+    type: json
+  distributionoptionsemailall:
+    value: DistributionOptionsEmailAll
+    label: DistributionOptionsEmailAll
+    machine_name: distributionoptionsemailall
+    type: json
+  distributionoptionsslack:
+    value: DistributionOptionsSlack
+    label: DistributionOptionsSlack
+    machine_name: distributionoptionsslack
+    type: json
 mappings:
   -
     target: title
@@ -141,3 +160,21 @@ mappings:
     settings:
       language: null
     unique: {  }
+  -
+    target: field_do_email_subscribers
+    map:
+      value: distributionoptionsemailsubscribers
+    settings:
+      language: null
+  -
+    target: field_do_email_all
+    map:
+      value: distributionoptionsemailall
+    settings:
+      language: null
+  -
+    target: field_do_slack
+    map:
+      value: distributionoptionsslack
+    settings:
+      language: null
