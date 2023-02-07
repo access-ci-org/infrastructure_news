@@ -6,15 +6,15 @@ dependencies:
     - core.base_field_override.node.infrastructure_news.title
     - field.field.node.infrastructure_news.body
     - field.field.node.infrastructure_news.field_infrastructure_news_end
-    - field.field.node.infrastructure_news.field_infrastructure_news_id
     - field.field.node.infrastructure_news.field_infrastructure_news_start
     - field.field.node.infrastructure_news.field_infrastructure_news_type
+    - field.field.node.infrastructure_news.field_infrastructure_news_urn
     - node.type.infrastructure_news
   module:
     - feeds_ex
     - node
 _core:
-  default_config_hash: KU9QdCrAvqfKfmqgdUk8yHLGsCHbjXRyp2sUPVxiD0k
+  default_config_hash: mtFGGYuIQ7imiVzSp1hK4uCf6qCHwuu9nY1WEE6Nj6Y
 label: 'Infrastructure News'
 id: infrastructure_news_feed
 description: 'Infrastructure news feed'
@@ -86,7 +86,7 @@ custom_sources:
     machine_name: urn
     type: json
   affectedresources:
-    value: AffectedResources
+    value: 'AffectedResources[*]ResourceID'
     label: AffectedResources
     machine_name: affectedresources
     type: json
@@ -127,10 +127,17 @@ mappings:
     settings:
       language: null
   -
-    target: field_infrastructure_news_id
+    target: field_infrastructure_news_urn
     map:
       value: urn
     settings:
       language: null
     unique:
       value: '1'
+  -
+    target: field_affected_resources_txt
+    map:
+      value: affectedresources
+    settings:
+      language: null
+    unique: {  }

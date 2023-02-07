@@ -7,19 +7,20 @@ dependencies:
     - field.field.node.infrastructure_news.body
     - field.field.node.infrastructure_news.feeds_item
     - field.field.node.infrastructure_news.field_affected_infrastructure
+    - field.field.node.infrastructure_news.field_affected_resources_txt
     - field.field.node.infrastructure_news.field_do_email_all
     - field.field.node.infrastructure_news.field_do_email_subscribers
     - field.field.node.infrastructure_news.field_do_slack
     - field.field.node.infrastructure_news.field_infrastructure_news_end
-    - field.field.node.infrastructure_news.field_infrastructure_news_id
     - field.field.node.infrastructure_news.field_infrastructure_news_start
     - field.field.node.infrastructure_news.field_infrastructure_news_type
+    - field.field.node.infrastructure_news.field_infrastructure_news_urn
     - node.type.infrastructure_news
   module:
     - text
     - user
 _core:
-  default_config_hash: lasq-feZN-SX60Veennv07SUHjM0xSVw5zuoPTThNVk
+  default_config_hash: dxPWP28V3tDRP1dm_KCcX53us5D81lcUkqFp0RNWq0o
 id: node.infrastructure_news.teaser
 targetEntityType: node
 bundle: infrastructure_news
@@ -41,10 +42,11 @@ content:
 hidden:
   feeds_item: true
   field_affected_infrastructure: true
+  field_affected_resources_txt: true
   field_do_email_all: true
   field_do_email_subscribers: true
   field_do_slack: true
   field_infrastructure_news_end: true
-  field_infrastructure_news_id: true
   field_infrastructure_news_start: true
   field_infrastructure_news_type: true
+  field_infrastructure_news_urn: true

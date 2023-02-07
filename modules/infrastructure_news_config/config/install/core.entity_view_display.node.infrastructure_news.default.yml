@@ -6,13 +6,14 @@ dependencies:
     - field.field.node.infrastructure_news.body
     - field.field.node.infrastructure_news.feeds_item
     - field.field.node.infrastructure_news.field_affected_infrastructure
+    - field.field.node.infrastructure_news.field_affected_resources_txt
     - field.field.node.infrastructure_news.field_do_email_all
     - field.field.node.infrastructure_news.field_do_email_subscribers
     - field.field.node.infrastructure_news.field_do_slack
     - field.field.node.infrastructure_news.field_infrastructure_news_end
-    - field.field.node.infrastructure_news.field_infrastructure_news_id
     - field.field.node.infrastructure_news.field_infrastructure_news_start
     - field.field.node.infrastructure_news.field_infrastructure_news_type
+    - field.field.node.infrastructure_news.field_infrastructure_news_urn
     - node.type.infrastructure_news
   module:
     - datetime
@@ -20,7 +21,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: zO6lT7G0BrmBZCLvHsbd1Iaz41DRqCDDnD5WZflZaFY
+  default_config_hash: L9U-fr0nevsRYzPVzL_9BDmxiTv09uSR_GZ3GJ7pdmA
 id: node.infrastructure_news.default
 targetEntityType: node
 bundle: infrastructure_news
@@ -40,6 +41,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 107
+    region: content
+  field_affected_resources_txt:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 114
     region: content
   field_do_email_all:
     type: boolean
@@ -80,15 +89,6 @@ content:
     third_party_settings: {  }
     weight: 103
     region: content
-  field_infrastructure_news_id:
-    type: number_integer
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 104
-    region: content
   field_infrastructure_news_start:
     type: datetime_default
     label: above
@@ -104,6 +104,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 105
+    region: content
+  field_infrastructure_news_urn:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 113
     region: content
   links:
     settings: {  }
