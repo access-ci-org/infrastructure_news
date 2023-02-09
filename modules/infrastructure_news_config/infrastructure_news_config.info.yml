@@ -4,7 +4,7 @@ package: Other
 type: module
 core_version_requirement: ^9.4 || ^10
 dependencies:
-  - drupa:infrastructure_news
+  - drupal:infrastructure_news
   - drupal:feeds
   - drupal:feeds_ex
   - drupal:field_group
