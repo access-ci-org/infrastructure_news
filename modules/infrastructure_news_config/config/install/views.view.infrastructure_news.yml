@@ -15,6 +15,8 @@ dependencies:
     - options
     - text
     - user
+_core:
+  default_config_hash: Fm0SdimgdQYwLz4DUSGg93B1DAzlTtjI6J-kJZkz8Mg
 id: infrastructure_news
 label: 'Infrastructure News'
 module: views
@@ -608,14 +610,14 @@ display:
               responsive: ''
             field_infrastructure_news_start:
               sortable: true
-              default_sort_order: asc
+              default_sort_order: desc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             field_infrastructure_news_end:
               sortable: true
-              default_sort_order: asc
+              default_sort_order: desc
               align: ''
               separator: ''
               empty_column: false
@@ -653,7 +655,7 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: "<a href=\"/infrastructure-news\">All</a>\r\n<a href=\"/infrastructure-news/current\">Current</a>"
+            value: "<a href=\"/infrastructure-news\" class=\"active\">All</a>\r\n<a href=\"/infrastructure-news/current\">Current</a>\r\n<a href=\"/infrastructure-news/future\">Future</a>"
             format: basic_html
           tokenize: false
       footer: {  }
@@ -889,7 +891,7 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: "<a href=\"/infrastructure-news\" class=\"btn btn-outline-secondary\">All</a>\r\n<a href=\"/infrastructure-news/current\" class=\"btn btn-outline-secondaryactive\">Current</a>"
+            value: "<a href=\"/infrastructure-news\">All</a>\r\n<a href=\"/infrastructure-news/current\" class=\"active\">Current</a>\r\n<a href=\"/infrastructure-news/future\">Future</a>"
             format: basic_html
           tokenize: false
       display_extenders: {  }
@@ -1007,11 +1009,11 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: "<a href=\"/infrastructure-news\" class=\"btn btn-outline-secondary\">All</a>\r\n<a href=\"/infrastructure-news/current\" class=\"btn btn-outline-secondaryactive\">Current</a>"
+            value: "<a href=\"/infrastructure-news\">All</a>\r\n<a href=\"/infrastructure-news/current\">Current</a>\r\n<a href=\"/infrastructure-news/future\" class=\"active\">Future</a>"
             format: basic_html
           tokenize: false
       display_extenders: {  }
-      path: infrastructure-news/current
+      path: infrastructure-news/future
     cache_metadata:
       max-age: -1
       contexts:
