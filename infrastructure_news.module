@@ -1,9 +1,21 @@
 <?php
 
 /**
+ * @file
+ */
+
+/**
  * Implements hook_entity_presave().
  */
-function infrastructure_news_entity_presave(\Drupal\Core\Entity\EntityInterface $entity) {
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\Node;
+
+/**
+ *
+ */
+function infrastructure_news_entity_presave(EntityInterface $entity) {
   if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'infrastructure_news') {
     // Get value of field_affected_resources_txt and use that to set the value
     // on field_affected_infrastructure.
@@ -15,6 +27,7 @@ function infrastructure_news_entity_presave(\Drupal\Core\Entity\EntityInterface 
         $affected_resource = $value['value'];
         // Perform entity query on node type access_active_resources_from_cid by field_access_global_resource_id that matches $affected_resource and get nid.
         $query = \Drupal::entityQuery('node')
+          ->accessCheck(FALSE)
           ->condition('type', 'access_active_resources_from_cid')
           ->condition('field_access_global_resource_id', $affected_resource);
         $nids = $query->execute();
@@ -24,7 +37,7 @@ function infrastructure_news_entity_presave(\Drupal\Core\Entity\EntityInterface 
         }
       }
       if (!empty($affected_resources_nid)) {
-       // Set field_affected_infrastructure to the same value.
+        // Set field_affected_infrastructure to the same value.
         $entity->set('field_affected_infrastructure', $affected_resources_nid);
       }
     }
@@ -34,19 +47,20 @@ function infrastructure_news_entity_presave(\Drupal\Core\Entity\EntityInterface 
 /**
  * Implements hook_form_alter().
  */
-function infrastructure_news_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function infrastructure_news_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   // Alter the views exposed form for the infrastructure news page.
   if ($form_id == "views_exposed_form" && $form['#id'] == "views-exposed-form-infrastructure-news-page-1") {
     $query = \Drupal::entityQuery('node')
+      ->accessCheck(FALSE)
       ->condition('type', 'access_active_resources_from_cid');
     $nids = $query->execute();
-    $nodes = \Drupal\node\Entity\Node::loadMultiple($nids);
-    $options = [ '' => 'All'];
+    $nodes = Node::loadMultiple($nids);
+    $options = ['' => 'All'];
     foreach ($nodes as $node) {
       $options[$node->id()] = $node->getTitle();
     }
     $form['field_affected_infrastructure_target_id']['#type'] = 'select';
-    $form['field_affected_infrastructure_target_id']['#size'] = null;
+    $form['field_affected_infrastructure_target_id']['#size'] = NULL;
     $form['field_affected_infrastructure_target_id']['#options'] = $options;
   }
 }
