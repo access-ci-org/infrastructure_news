@@ -17,6 +17,11 @@ use Drupal\node\Entity\Node;
  */
 function infrastructure_news_entity_presave(EntityInterface $entity) {
   if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'infrastructure_news') {
+    // If title has html entity, run html_entity_decode on it.
+    $title = $entity->get('title')->value;
+    if (html_entity_decode($title) != $title) {
+      $entity->set('title', html_entity_decode($title));
+    }
     // Get value of field_affected_resources_txt and use that to set the value
     // on field_affected_infrastructure.
     $affected_resources = $entity->get('field_affected_resources_txt')->getValue();
