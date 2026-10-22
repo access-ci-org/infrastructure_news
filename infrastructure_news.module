@@ -9,9 +9,26 @@
  */
 
 use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Entity\FieldableEntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_create() for node.
+ */
+function infrastructure_news_node_create(NodeInterface $node) {
+  // Feeds imports these on cron, outside any entity form, and Domain 3.x
+  // only defaults field_domain_access on entity forms. Pin new items to the
+  // ACCESS Support domain unless the importer already set one. This has to
+  // happen at create, not presave: Feeds validates the entity before saving
+  // it, and the field is required, so a presave default comes too late and
+  // the item is rejected.
+  if ($node->bundle() == 'infrastructure_news'
+    && $node->hasField('field_domain_access')
+    && $node->get('field_domain_access')->isEmpty()) {
+    $node->set('field_domain_access', 'amp_cyberinfrastructure_org');
+  }
+}
 
 /**
  *
@@ -22,15 +39,6 @@ function infrastructure_news_entity_presave(EntityInterface $entity) {
     $title = $entity->get('title')->value;
     if (html_entity_decode($title) != $title) {
       $entity->set('title', html_entity_decode($title));
-    }
-    // Feeds imports these on cron, outside any entity form, and Domain 3.x
-    // only defaults field_domain_access on entity forms. Pin new items to the
-    // ACCESS Support domain unless the importer already set one.
-    if ($entity instanceof FieldableEntityInterface
-      && $entity->isNew()
-      && $entity->hasField('field_domain_access')
-      && $entity->get('field_domain_access')->isEmpty()) {
-      $entity->set('field_domain_access', 'amp_cyberinfrastructure_org');
     }
     // Get value of field_affected_resources_txt and use that to set the value
     // on field_affected_infrastructure.
